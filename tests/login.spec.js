@@ -3,7 +3,6 @@ const { test, expect } = require('./pages/test_fixture.js');
 
 require('dotenv').config();
 
-//Test Describe
 test.describe('Login Test Suite', () => {
   test.beforeEach(async ({ page, login }) => {
     await page.goto(login.nutacloudWebsite);
