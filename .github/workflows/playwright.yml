@@ -16,8 +16,12 @@ jobs:
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      run: npx playwright install chromium  # Install only Chromium
     - name: Run Playwright tests
+      env:
+          NAMA_PERUSAHAAN: ${{ secrets.NAMA_PERUSAHAAN }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
